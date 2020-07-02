@@ -1,38 +1,4 @@
 /build/
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@oli999 
-oli999
-/
-ncs09_web_work
-1
-315
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-ncs09_web_work/Step01_Servlet/.gitignore
-@oli999
-oli999 Step01_Servlet 에서 오늘의 운세 기능 추가함
-Latest commit bd65084 on 2 Jan
- History
- 1 contributor
-130 lines (96 sloc)  1.76 KB
-  
-
-# Created by https://www.gitignore.io/api/java,windows,eclipse,java-web
-# Edit at https://www.gitignore.io/?templates=java,windows,eclipse,java-web
 
 ### Eclipse ###
 .metadata
@@ -157,18 +123,3 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-
-# End of https://www.gitignore.io/api/java,windows,eclipse,java-web
-/build/
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
