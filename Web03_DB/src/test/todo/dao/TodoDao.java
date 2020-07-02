@@ -23,6 +23,39 @@ public class TodoDao {
 		}
 		return dao;
 	}
+	//인자로 전달되는 번호에 해당하는 할일을 삭제 하는 메소드
+	public boolean delete(int num) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int flag = 0;
+		try {
+			conn = new DbcpBean().getConn();
+			//실행할 sql 문 준비하기 
+			String sql = "DELETE FROM todo"
+					+ " WHERE num=?";
+			pstmt = conn.prepareStatement(sql);
+			//? 에 바인딩 할 값이 있으면 바인딩한다.
+			pstmt.setInt(1, num);
+			//sql  문 수행하고 update or insert or delete 된 row 의 갯수 리턴받기 
+			flag = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+			}
+		}
+		if (flag > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	//인자로 전달되는 할일 1개를 DB 에 저장하고 성공 여부를 리턴하는 메소드
 	public boolean insert(String content) {
 		Connection conn = null;
