@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>/member/list.jsp</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.css" />
 </head>
 <body>
 <%
@@ -17,9 +18,19 @@
 	List<MemberDto> list=dao.getList();
 %>
 <div class="container">
+	<div class="navbar navbar-expand-sm navbar-dark bg-primary">
+		<a class="navbar-brand" href="${pageContext.request.contextPath }/">Acorn</a>
+
+		<ul class="navbar-nav">
+			<li class="nav-item"><a class="nav-link active" href="${pageContext.request.contextPath }/member/list.jsp">Member</a></li>
+			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/todo/list.jsp">Todo</a></li>
+		</ul>
+
+	</div>
+
 	<h1>회원 목록입니다.</h1>
-	<table>
-		<thead>
+	<table class="table table-sm">
+		<thead class="thead-dark">
 			<tr>
 				<th>번호</th>
 				<th>이름</th>
