@@ -35,6 +35,8 @@
 				<th>번호</th>
 				<th>이름</th>
 				<th>주소</th>
+				<th>수정</th>
+				<th>삭제</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -43,12 +45,20 @@
 				<td><%=tmp.getNum() %></td>
 				<td><%=tmp.getName() %></td>
 				<td><%=tmp.getAddr() %></td>
+				<td><a href="updateform.jsp?num=<%=tmp.getNum() %>">수정</a></td>
+				<td><a href="delete.jsp?num=<%=tmp.getNum() %>">삭제</a></td>
 			</tr>
 		<%} %>	
 		</tbody>
 	</table>
+	<a href="insertform.jsp">회원 추가 하러 가기</a>
 </div>
 </body>
 </html>
+
+
+
+
+
 
 
