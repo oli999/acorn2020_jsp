@@ -31,17 +31,25 @@
 		</tr>
 		<tr>
 			<th>내용</th>
-			<td><textarea cols="20" rows="5"><%=dto.getContent() %></textarea></td>
+			<td><textarea cols="20" rows="5" disabled><%=dto.getContent() %></textarea></td>
 		</tr>
 		<tr>
 			<td></td>
 			<td>
 				<a href="updateform.jsp?num=<%=dto.getNum() %>">수정</a>
-				<a href="delete.jsp?num=<%=dto.getNum() %>">삭제</a>
+				<a href="javascript:deleteConfirm(<%=dto.getNum() %>)">삭제</a>
 			</td>
 		</tr>
 	</table>
 </body>
+<script>
+	function deleteConfirm(num){
+		var isDelete=confirm(num+" 번 글을 삭제 하시겠습니까?");
+		if(isDelete){
+			location.href="delete.jsp?num="+num;
+		}
+	}
+</script>
 </html>
 
 
