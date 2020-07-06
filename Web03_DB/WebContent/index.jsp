@@ -22,6 +22,7 @@
 	<ul>
 		<li><a href="member/list.jsp">회원 목록 보기</a></li>
 		<li><a href="todo/list.jsp">할일 목록 보기</a></li>
+		<li><a href="board/list.jsp">글 목록 보기</a></li>
 	</ul>
 </div>
 </body>
