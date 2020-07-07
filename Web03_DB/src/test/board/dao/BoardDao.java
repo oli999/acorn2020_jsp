@@ -29,6 +29,7 @@ public class BoardDao {
 		PreparedStatement pstmt = null;
 		int flag = 0;
 		try {
+			//Connection Pool 에서 Connection 객체를 하나 가지고 온다. 
 			conn = new DbcpBean().getConn();
 			//실행할 sql 문 준비하기 
 			String sql = "INSERT INTO board_guest"
@@ -48,7 +49,7 @@ public class BoardDao {
 				if (pstmt != null)
 					pstmt.close();
 				if (conn != null)
-					conn.close();
+					conn.close(); // Connection 반납하기 
 			} catch (Exception e) {
 			}
 		}
