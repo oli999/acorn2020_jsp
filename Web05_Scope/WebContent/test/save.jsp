@@ -6,6 +6,8 @@
 	String nick=request.getParameter("nick");
 	//HttpSession 객체에 담는다. (session 영역에 담는다.)
 	session.setAttribute("nick", nick);
+	//60초 동안 새로운 요청을 하지 않았을때 삭제 되도록 설정...
+	session.setMaxInactiveInterval(60); //초 단위로 설정한다
 	/*
 		session 영역에 담은 데이터가 삭제 되는 경우 
 		
@@ -22,6 +24,7 @@
 </head>
 <body>
 	<p> <strong><%=nick %></strong> 이라는 닉네임을 기억 하겠습니다.</p>
+	<p> 60 초 동안 아무런 요청도 하지 않으면 삭제 됩니다.</p>
 	<a href="../index.jsp">인덱스로 이동하기</a>
 </body>
 </html>
