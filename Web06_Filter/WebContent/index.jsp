@@ -17,14 +17,21 @@
 		String id=(String)session.getAttribute("id");
 	%>
 	
-	<h3>가상의 로그인 폼</h3>
-	<form action="test/login.jsp" method="post">
-		<input type="text" name="id" placeholder="아이디..."/>
-		<input type="password" name="pwd" placeholder="비밀번호..."/>
-		<button type="submit">로그인</button>
-	</form>
-	
-	<p> <strong><%=id %></strong>님 로그인중...</p>
+	<%if(id==null){ %>
+		<h3>가상의 로그인 폼</h3>
+		<form action="test/login.jsp" method="post">
+			<input type="text" name="id" placeholder="아이디..."/>
+			<input type="password" name="pwd" placeholder="비밀번호..."/>
+			<button type="submit">로그인</button>
+		</form>	
+	<%}else{ %>
+		<p> <strong><%=id %></strong>님 로그인중... <a href="test/logout.jsp">로그아웃</a></p>
+	<%} %>
+	<ul>
+		<li><a href="member/play.jsp">회원 전용 공간으로 가기</a></li>
+		<li><a href="member/study.jsp">회원 전용 공간으로 가기2</a></li>
+		<li><a href="member/buy.jsp?num=1&amount=10">구입하기</a></li>
+	</ul>
 </body>
 </html>
 
