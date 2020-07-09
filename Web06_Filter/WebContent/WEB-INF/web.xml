@@ -24,16 +24,6 @@
   	<filter-name>EncodingFilter</filter-name>
   	<url-pattern>/*</url-pattern>
   </filter-mapping>
-  <!-- 로그인 필터 정의하기 -->
-  <filter>
-  	<filter-name>LoginFilter</filter-name>
-  	<filter-class>test.filter.LoginFilter</filter-class>
-  </filter>
-  <!-- 필터 맵핑하기 -->
-  <filter-mapping>
-  	<filter-name>LoginFilter</filter-name>
-  	<url-pattern>/member/*</url-pattern>
-  </filter-mapping>
 </web-app>
 
 

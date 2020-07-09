@@ -8,10 +8,13 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+//web.xml 에 필터 정의와 필터 맵핑을 어노테이션을 이용해서 할수 있다.
+@WebFilter("/member/*")
 public class LoginFilter implements Filter{
 
 	@Override
