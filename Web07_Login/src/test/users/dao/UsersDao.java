@@ -16,6 +16,51 @@ public class UsersDao {
 		}
 		return dao;
 	}
+	//인자로 전달된 id 에 해당하는 정보를 리턴하는 메소드
+	public UsersDto getData(String id) {
+		//UsersDto 객체의 참조값을 담을 지역 변수 만들기 
+		UsersDto dto=null;
+		//필요한 객체의 참조값을 담을 지역변수 만들기 
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			//Connection 객체의 참조값 얻어오기 
+			conn = new DbcpBean().getConn();
+			//실행할 sql 문 준비하기
+			String sql = "SELECT pwd,email,profile,regdate"
+					+ " FROM users"
+					+ " WHERE id=?";
+			pstmt = conn.prepareStatement(sql);
+			//sql 문에 ? 에 바인딩할 값이 있으면 바인딩하고 
+			pstmt.setString(1, id);
+			//select 문 수행하고 결과 받아오기 
+			rs = pstmt.executeQuery();
+			//결과 값 추출하기 
+			if (rs.next()) {
+				dto=new UsersDto();
+				dto.setId(id);
+				dto.setPwd(rs.getString("pwd"));
+				dto.setEmail(rs.getString("email"));
+				dto.setProfile(rs.getString("profile"));
+				dto.setRegdate(rs.getString("regdate"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+			}
+		}
+		return dto;
+	}
+	
 	//UsersDto 객체에 있는 id, pwd 가 유효한 정보인지 여부를 리턴하는 메소드
 	public boolean isValid(UsersDto dto) {
 		//유효한 정보인지 여부를 담을 지역변수 만들고 초기값 false 부여하기
