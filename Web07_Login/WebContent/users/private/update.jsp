@@ -17,12 +17,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/users/update.jsp</title>
+<title>/users/private/update.jsp</title>
 </head>
 <body>
 	<script>
 		alert("수정 했습니다.");
-		location.href="${pageContext.request.contextPath }/users/info.jsp";
+		location.href="${pageContext.request.contextPath }/users/private/info.jsp";
 	</script>
 </body>
 </html>

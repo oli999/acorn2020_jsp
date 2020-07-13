@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/users/pwd_updateform.jsp</title>
+<title>/users/private/pwd_updateform.jsp</title>
 </head>
 <body>
 <div class="container">

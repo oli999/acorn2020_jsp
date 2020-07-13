@@ -14,7 +14,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/users/delete.jsp</title>
+<title>/users/private/delete.jsp</title>
 </head>
 <body>
 <div class="container">

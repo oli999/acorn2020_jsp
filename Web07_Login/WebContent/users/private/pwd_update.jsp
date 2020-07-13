@@ -20,7 +20,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/users/pwd_update.jsp</title>
+<title>/users/private/pwd_update.jsp</title>
 </head>
 <body>
 <%if(isSuccess){ %>
@@ -28,7 +28,7 @@
 <%}else{ %>
 	<p>
 		이번 비밀번호가 일치 하지 않습니다.
-		<a href="${pageContext.request.contextPath }/users/pwd_updateform.jsp">다시 시도</a>
+		<a href="${pageContext.request.contextPath }/users/private/pwd_updateform.jsp">다시 시도</a>
 	</p>
 <%} %>
 </body>
