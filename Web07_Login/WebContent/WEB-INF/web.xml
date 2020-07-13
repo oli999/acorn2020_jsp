@@ -15,6 +15,21 @@
 		<res-type>javax.sql.DataSource</res-type>
 		<res-auth>Container</res-auth>
 	</resource-ref>
+  <!-- 인코딩 필터 정의하기(Tomcat 웹서버에 알리기)-->
+  <filter>
+  	<filter-name>EncodingFilter</filter-name>
+  	<filter-class>test.filter.EncodingFilter</filter-class>
+  	<!-- 필터 초기화 파라미터 정의하기  encoding : utf-8 -->
+  	<init-param>
+  		<param-name>encoding</param-name>
+  		<param-value>utf-8</param-value>
+  	</init-param>
+  </filter>
+  <!-- 인코딩 필터 맵핑하기(어떤 요청에 대해서 필터가 동작할지 알리기) -->
+  <filter-mapping>
+  	<filter-name>EncodingFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>	
 </web-app>
 
 
