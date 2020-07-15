@@ -41,6 +41,8 @@
 
     //WebContent 하위의 upload 폴더 절대 경로 얻어오기 
     String uploadPath = application.getRealPath("/upload");
+    //업로드 경로를 서버측 콘솔에 출력하기 
+    System.out.println(uploadPath);
     //전송된 파라미터의 한글 인코딩 설정 
     upload.setHeaderEncoding("utf-8");
     
@@ -52,8 +54,10 @@
         List<FileItem> formItems = upload.parseRequest(request);
         //폼전송된 아이템이 존재 한다면 
         if (formItems != null && formItems.size() > 0) {
+        	
         	//파일 정보를 담을 Dto 객체 생성
         	FileDto dto=new FileDto();
+        	
         	//로그인된 아이디(파일의 작성자)
         	String id=(String)session.getAttribute("id");
         	dto.setWriter(id);
@@ -73,6 +77,7 @@
                 	//파일을 파일시스템에 저장한다.
                     File storeFile = new File(filePath);
                     item.write(storeFile);
+                    
                     //원본 파일명과 저장된 파일명을 FileDto 객체에 담는다.
                    	dto.setOrgFileName(orgFileName);
                    	dto.setSaveFileName(saveFileName);
@@ -86,6 +91,7 @@
                 		String title=item.getString("utf-8");
                 		dto.setTitle(title);
                 	}
+                
                 }//if
             }//for
             //DB 에 파일 정보를 저장한다.

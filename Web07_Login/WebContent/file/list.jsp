@@ -33,7 +33,7 @@
 				<td><%=tmp.getNum() %></td>
 				<td><%=tmp.getWriter() %></td>
 				<td><%=tmp.getTitle() %></td>
-				<td><%=tmp.getOrgFileName() %></td>
+				<td><a href="download.jsp?num=<%=tmp.getNum() %>"><%=tmp.getOrgFileName() %></a></td>
 				<td><%=tmp.getFileSize() %></td>
 				<td><%=tmp.getRegdate() %></td>
 			</tr>
