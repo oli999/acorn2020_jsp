@@ -26,6 +26,7 @@
 		<li><a href="ajax/test01.jsp">Ajax 테스트</a></li>
 		<li><a href="ajax/test02.jsp">Ajax 테스트2</a></li>
 		<li><a href="ajax/test03.jsp">Ajax 테스트3</a></li>
+		<li><a href="file/list.jsp">자료실 목록 보기</a></li>
 	</ul>
 </div>
 </body>
