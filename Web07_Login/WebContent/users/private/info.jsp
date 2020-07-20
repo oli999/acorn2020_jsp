@@ -12,6 +12,15 @@
 <head>
 <meta charset="UTF-8">
 <title>/users/private/info.jsp</title>
+<style>
+	/* 이미지를 작은 원형으로 만든다. */
+	#profileImage{
+		width: 50px;
+		height: 50px;
+		border: 1px solid #cecece;
+		border-radius: 50%;
+	}
+</style>
 </head>
 <body>
 <div class="container">
@@ -20,6 +29,11 @@
 		<tr>
 			<th>아이디</th>
 			<td><%=dto.getId() %></td>
+		</tr>
+		<tr>
+			<th>프로필 이미지</th>
+			<td><img id="profileImage" 
+			src="${pageContext.request.contextPath }<%=dto.getProfile()%>"/></td>
 		</tr>
 		<tr>
 			<th>비밀번호</th>
