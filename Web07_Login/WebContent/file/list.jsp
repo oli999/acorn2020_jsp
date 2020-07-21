@@ -59,12 +59,11 @@
 		검색 키워드에 관련된 처리 
 	*/
 	String keyword=request.getParameter("keyword");
+	if(keyword==null){//전달된 키워드가 없다면 
+		keyword=""; //빈 문자열을 넣어준다. 
+	}
 	//인코딩된 키워드를 미리 만들어 둔다. 
-	String encodedK="";
-	try{
-		//keyword 가 null 이면 Exception 발생 
-		encodedK=URLEncoder.encode(keyword);
-	}catch(Exception ne){}
+	String encodedK=URLEncoder.encode(keyword);
 	String condition=request.getParameter("condition");
 	//검색 키워드와 startRowNum, endRowNum 을 담을 FileDto 객체 생성
 	FileDto dto=new FileDto();
@@ -74,7 +73,7 @@
 	List<FileDto> list=null;
 	//전체 row 의 갯수를 담을 변수 
 	int totalRow=0;
-	if(keyword != null){ //만일 키워드가 넘어온다면 
+	if(!keyword.equals("")){ //만일 키워드가 넘어온다면 
 		if(condition.equals("title_filename")){
 			//검색 키워드를 FileDto 객체의 필드에 담는다. 
 			dto.setTitle(keyword);
@@ -165,11 +164,11 @@
 	<form action="list.jsp" method="get">
 		<label for="condition">검색조건</label>
 		<select name="condition" id="condition">
-			<option value="title_filename">제목+파일명</option>
-			<option value="title">제목</option>
-			<option value="writer">작성자</option>
+			<option value="title_filename" <%if(condition.equals("title_filename")){ %>selected<%} %>>제목+파일명</option>
+			<option value="title" <%if(condition.equals("title")){ %>selected<%} %>>제목</option>
+			<option value="writer" <%if(condition.equals("writer")){ %>selected<%} %>>작성자</option>
 		</select>
-		<input type="text" name="keyword" placeholder="검색어..."/>
+		<input value="<%=keyword %>" type="text" name="keyword" placeholder="검색어..."/>
 		<button type="submit">검색</button>
 	</form>
 </div>
