@@ -9,27 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>/file/list.jsp</title>
-<style>
-	.page-display a{
-		text-decoration: none;
-		color: #000;
-	}
-
-	.page-display ul li{
-		float: left;  /* 가로로 쌓이게 */
-		list-style-type: none; /* disc 사라지게 */
-		margin-right: 10px; /* 오른쪽 마진 */
-	}
-	
-	.page-display ul li.active{/* li 요소 이면서 active 클래스를 가지고 있는 요소 */
-		text-decoration: underline;
-		font-weight: bold;
-	}
-	
-	.page-display ul li.active a{
-		color:red;
-	}
-</style>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.css" />
 </head>
 <body>
 <% 
@@ -113,8 +93,8 @@
 <div class="container">
 	<a href="private/upload_form.jsp">파일 업로드</a>
 	<h1>파일 목록입니다.</h1>
-	<table>
-		<thead>
+	<table class="table table-striped table-sm">
+		<thead class="thead-dark">
 			<tr>
 				<th>번호</th>
 				<th>작성자</th>
@@ -144,19 +124,19 @@
 		</tbody>
 	</table>
 	<div class="page-display">
-		<ul>
+		<ul class="pagination pagination-sm">
 		<%if(startPageNum != 1){ %>
-			<li><a href="list.jsp?pageNum=<%=startPageNum-1 %>&condition=<%=condition %>&keyword=<%=encodedK %>">Prev</a></li>
+			<li class="page-item"><a class="page-link" href="list.jsp?pageNum=<%=startPageNum-1 %>&condition=<%=condition %>&keyword=<%=encodedK %>">Prev</a></li>
 		<%} %>
 		<%for(int i=startPageNum; i<=endPageNum; i++){ %>
 			<%if(i==pageNum){ %>
-				<li class="active"><a href="list.jsp?pageNum=<%=i %>&condition=<%=condition %>&keyword=<%=encodedK %>"><%=i %></a></li>
+				<li class="page-item active"><a class="page-link" href="list.jsp?pageNum=<%=i %>&condition=<%=condition %>&keyword=<%=encodedK %>"><%=i %></a></li>
 			<%}else{%>
-				<li><a href="list.jsp?pageNum=<%=i %>&condition=<%=condition %>&keyword=<%=encodedK %>"><%=i %></a></li>
+				<li class="page-item"><a class="page-link" href="list.jsp?pageNum=<%=i %>&condition=<%=condition %>&keyword=<%=encodedK %>"><%=i %></a></li>
 			<%} %>
 		<%} %>	
 		<%if(endPageNum < totalPageCount){ %>
-			<li><a href="list.jsp?pageNum=<%=endPageNum+1 %>&condition=<%=condition %>&keyword=<%=encodedK %>">Next</a></li>
+			<li class="page-item"><a class="page-link" href="list.jsp?pageNum=<%=endPageNum+1 %>&condition=<%=condition %>&keyword=<%=encodedK %>">Next</a></li>
 		<%} %>
 		</ul>
 	</div>
