@@ -30,6 +30,7 @@
 		<li><a href="gallery/test.jsp">이미지 업로드 테스트</a></li>
 		<li><a href="gallery/test2.jsp">ajax 이미지 업로드 테스트</a></li>
 		<li><a href="gallery/list.jsp">이미지 겔러리</a></li>
+		<li><a href="test/editor.jsp">SmartEditor  테스트</a></li>
 	</ul>
 </div>
 </body>
