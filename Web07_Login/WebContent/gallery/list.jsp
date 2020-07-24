@@ -69,10 +69,14 @@
 <script>
 	//페이지가 처음 로딩될때 1page 를 보여준다고 가정
 	var currentPage=1;
-
+	//전체 페이지의 수를 javascript 변수에 담아준다.
+	var totalPageCount=<%=totalPageCount%>;
+	
 	//웹브라우저에 scoll 이벤트가 일어 났을때 실행할 함수 등록 
 	$(window).on("scroll", function(){
-		console.log("scroll!");
+		if(currentPage == totalPageCount){//만일 마지막 페이지 이면 
+			return; //함수를 여기서 종료한다. 
+		}
 		//위쪽으로 스크롤된 길이 구하기
 		var scrollTop=$(window).scrollTop();
 		//window 의 높이
@@ -82,6 +86,9 @@
 		//바닥까지 스크롤 되었는지 여부
 		var isBottom = scrollTop+windowHeight + 10 >= documentHeight;
 		if(isBottom){//만일 바닥까지 스크롤 했다면...
+			//로딩 이미지 띄우기
+			$(".loader").show();
+			
 			currentPage++; //페이지를 1 증가 시키고 
 			//해당 페이지의 내용을 ajax  요청을 해서 받아온다. 
 			$.ajax({
@@ -89,8 +96,11 @@
 				method:"get",
 				data:{pageNum:currentPage},
 				success:function(data){
+					console.log(data);
 					//data 가 html 마크업 형태의 문자열 
-					$(".container").html(data);
+					$(".container").append(data);
+					//로딩 이미지를 숨긴다. 
+					$(".loader").hide();
 				}
 			});
 		}
