@@ -35,6 +35,7 @@
 		<li><a href="test/scroll.jsp">scroll 테스트</a></li>
 		<li><a href="test/cookie_form.jsp">쿠키 test1</a></li>
 		<li><a href="test/cookie_form2.jsp">쿠키 test2</a></li>
+		<li><a href="test/cookie_form3.jsp">쿠키 test3</a></li>
 	</ul>
 </div>
 </body>
