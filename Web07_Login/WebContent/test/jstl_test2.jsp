@@ -35,6 +35,36 @@
 		<li>${tmp }</li>
 	</c:forEach>
 </ul>
+
+<h1>친구 목록 입니다. 인덱스 표시</h1>
+<ul>
+	<c:forEach var="tmp" items="${list }" varStatus="status">
+		<li data-index="${status.index }">${tmp } <strong>${status.index }</strong></li>
+	</c:forEach>
+</ul>
+
+<h1>친구 목록 입니다. 순서표시</h1>
+<ul>
+	<c:forEach var="tmp" items="${list }" varStatus="status">
+		<li data-index="${status.count }">${tmp } <strong>${status.count }</strong></li>
+	</c:forEach>
+</ul>
+
+<h1>친구 목록 입니다. 첫번째 인지 여부</h1>
+<ul>
+	<c:forEach var="tmp" items="${list }" varStatus="status">
+		<li>${tmp } <strong>첫번째 : ${status.first}</strong></li>
+	</c:forEach>
+</ul>
+
+<h1>친구 목록 입니다. 마지막 인지 여부</h1>
+<ul>
+	<c:forEach var="tmp" items="${list }" varStatus="status">
+		<li>${tmp } <strong>마지막 : ${status.last}</strong></li>
+	</c:forEach>
+</ul>
+
+<a href="jstl_test3.jsp">다음예제</a>
 </body>
 </html>
 
