@@ -38,6 +38,9 @@
 		<li><a href="test/el_test.jsp">EL test1</a></li>
 		<li><a href="test/jstl_test.jsp">JSTL test1</a></li>
 		<li><a href="test/regular_ex.jsp">정규표현식 테스트1</a></li>
+		<li><a href="fortune">오늘의 운세[MVC 테스트]</a></li>
+		<li><a href="todo">할일 목록보기[MVC 테스트]</a></li>
+		<li><a href="file">파일 정보보기[MVC 테스트]</a></li>
 	</ul>
 </div>
 </body>
