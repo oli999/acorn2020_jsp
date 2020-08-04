@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/test/regular_ex6.jsp</title>
+<title>/test/regular_ex7.jsp</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.css" />
 </head>
 <body>
@@ -15,6 +15,7 @@
 			<label for="id">아이디</label>
 			<input class="form-control" type="text" id="id" name="id" placeholder="아이디 입력..."/>
 			<div class="invalid-feedback">영문자 소문자로 시작을 하고 최소 5글자에서 최대 10글자 이내로 작성하세요</div>
+			<div class="valid-feedback">아이디를 제대로 입력했습니다.</div>
 		</div>
 		<div class="form-group">
 			<label for="phone">휴대폰 번호</label>
@@ -23,7 +24,6 @@
 		</div>
 		<button class="btn btn-primary" type="submit">가입</button>
 	</form>
-	<a href="regular_ex7.jsp">다음예제</a>
 </div>
 <script src="${pageContext.request.contextPath }/js/jquery-3.5.1.js"></script>
 <script>
@@ -42,9 +42,11 @@
 		//입력한 아이디를 읽어와서 검증한다.
 		var inputId=$("#id").val();
 		isIdValid=reg_id.test(inputId);
+		//is-valid, is-invalid  클래스를 일단 제거후
+		$(this).removeClass("is-valid is-invalid");
 		if(isIdValid){//아이디가 유효하다면
-			// is-invalid 클래스를 제거한다.
-			$(this).removeClass("is-invalid");
+			//is-valid  클래스를 추가 한다
+			$(this).addClass("is-valid");
 		}else{//아이디가 유효하지 않다면
 			// is-invalid 클래스를 추가한다.
 			$(this).addClass("is-invalid");
@@ -55,9 +57,13 @@
 		//입력한 전화 번호를 읽어와서 검증한다.
 		var inputPhone=$("#phone").val();
 		isPhoneValid=reg_phone.test(inputPhone);
-		if(isPhoneValid){
-			$(this).removeClass("is-invalid");
-		}else{
+		//is-valid, is-invalid  클래스를 일단 제거후
+		$(this).removeClass("is-valid is-invalid");
+		if(isPhoneValid){//입력한 전화번호가 유효하다면
+			//is-valid  클래스를 추가 한다
+			$(this).addClass("is-valid");
+		}else{//전화번호가 유효하지 않다면
+			// is-invalid 클래스를 추가한다.
 			$(this).addClass("is-invalid");
 		}
 	});
