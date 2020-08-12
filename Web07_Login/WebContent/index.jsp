@@ -41,6 +41,7 @@
 		<li><a href="fortune">오늘의 운세[MVC 테스트]</a></li>
 		<li><a href="todo">할일 목록보기[MVC 테스트]</a></li>
 		<li><a href="file">파일 정보보기[MVC 테스트]</a></li>
+		<li><a href="file_list">파일 목록보기[MVC 테스트]</a></li>
 	</ul>
 </div>
 </body>
